@@ -1,0 +1,28 @@
+  <!-- ******************************** DJANGO TEMPLATE BLOCKS  ******************************** -->
+  {% extends 'portfolio/base.html' %}
+
+  {% block content %}
+  <!-- ******************************** DJANGO TEMPLATE BLOCKS  ******************************** -->
+
+  <!-- ******************************* ORIGINAL ALL_BLOGS HTML ********************************* -->
+<h1>Rob's Blogs</h1>
+
+<h2>Robert has written {{ blogs.count }} blog{{ blogs.count|pluralize }}</h2>
+
+
+<!-- Djangos template language below -->
+{% for blog in blogs %}
+
+<a href="{% url 'blog:detail' blog.id %}"<h2>{{ blog.title }}</h2></a>
+<!-- # Modify date format below on h5 tag -->
+<h5>{{ blog.date|date:"M d Y"|upper }}</h5>
+<!-- Modify description to only display x number of characters.  Useful on long descriptions -->
+<!-- <p>{{ blog.description|safe|truncatechars:100 }}</p> -->
+<p>{{ blog.description|striptags|truncatechars:100 }}</p>
+
+{% endfor %}
+  <!-- ******************************* ORIGINAL ALL_BLOGS HTML ********************************* -->
+
+  <!-- ******************************** DJANGO TEMPLATE BLOCKS  ******************************** -->
+{% endblock %}
+  <!-- ******************************** DJANGO TEMPLATE BLOCKS  ******************************** -->

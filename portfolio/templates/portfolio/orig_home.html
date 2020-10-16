@@ -1,0 +1,43 @@
+  <!-- ******************************** DJANGO TEMPLATE BLOCKS  ******************************** -->
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+  <!-- ******************************** DJANGO TEMPLATE BLOCKS  ******************************** -->
+
+  <!-- ************************** ORIGINAL PORTFOLIO HTML COPIED HERE ************************** -->
+  <h1> Robert's Portfolio </h1>
+
+  {% load static %}
+  <!-- Display link to Blogs webpage -->
+  <a href="{% url 'blog:all_blogs' %}">Blog</a>
+  <br>
+  <!-- Display a pdf file -->
+  <a href="{% static 'portfolio/RobResume.pdf' %}">Roberts Resume</a>
+  <br>
+  <br>
+  <!-- Static Image(s) for the websites home page -->
+  <img src="{% static "portfolio/IceTea.jpg" %}" height="520" width="386" class="center">
+  <!-- Djangos template language below -->
+  {% for project in projects %}
+
+  <!-- displays the variables defined in the project Class in models.py file -->
+  <!-- To separate the data to individual lines use html tags as displayed below -->
+  <h2>{{ project.title }}</h2>
+  <p>{{ project.description }}</p>
+  <img src="{{ project.image.url }}" height=113 width=200>
+  <!--height=100 width=80> can enter additional parameters to change image size -->
+
+  <!-- Will display the url if it exists -->
+  {% if project.url %}
+  <br>
+  <br><a href="{{ project.url }}">Link Added</a>
+  <br>
+  <br>
+  <br>
+  {% endif %}
+  {% endfor %}
+  <!-- ************************** ORIGINAL PORTFOLIO HTML COPIED HERE ************************** -->
+
+  <!-- ******************************** DJANGO TEMPLATE BLOCKS  ******************************** -->
+{% endblock %}
+  <!-- ******************************** DJANGO TEMPLATE BLOCKS  ******************************** -->
