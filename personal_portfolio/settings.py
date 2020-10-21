@@ -125,3 +125,10 @@ STATIC_ROOT = BASE_DIR /'static'
 # Added variables below to set paths to where media files are located
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR /'media'
+
+# This try block checks the environment you are in so you can run a local or a prod version of the startproject
+# based on the environment you are in.
+try:
+    from .local_settings import *
+except ImportError:
+    print("Looks like no local file.  You must on prod server.")
