@@ -27,6 +27,9 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['dragonking.pythonanywhere.com']
 
+# NEED to point to new domain here like below
+# ALLOWED_HOSTS = ['www.robertparent.info']
+
 
 # Application definition
 
